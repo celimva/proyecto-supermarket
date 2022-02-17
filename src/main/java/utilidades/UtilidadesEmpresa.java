@@ -37,12 +37,7 @@ o igual que 1000 € ordenados de mayor a menor salario.
             if(trabajador.getContrato().getSalarioBase() >= 1000){;
                 mileurista.add(trabajador);}
         }
-        mileurista.sort(new Comparator<Empleado>() {
-            @Override
-            public int compare(Empleado o1, Empleado o2) {
-                return o2.getContrato().getSalarioBase().compareTo(o1.getContrato().getSalarioBase());
-            }
-        });
+        mileurista.sort(new EmpleadoComparator());
         return mileurista;
     }
 
