@@ -7,7 +7,7 @@ tiene 9 caracteres y de los cuáles los 8 primeros son números
 y el último una letra, y devuelve false en caso contrario.*/
 
 public class UtilidadesCliente {
-    public boolean esDniValido(Cliente cliente) {
+    public static boolean esDniValido(Cliente cliente) {
         boolean areDigits = true;
 
         char[] caracteres = cliente.getDni().substring(0, 8).toCharArray();

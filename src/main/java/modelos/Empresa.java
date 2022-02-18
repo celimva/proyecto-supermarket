@@ -8,13 +8,13 @@ public class Empresa {
     private int identificador;
     private String codigoEmpresa;
     private List<Empleado> empleado;
-    Enum TipoEmpresa;
+    TipoEmpresa tipoEmpresa;
 
-    public Empresa(int identificador, String codigoEmpresa, List<Empleado> empleado, Enum tipoEmpresa) {
+    public Empresa(int identificador, String codigoEmpresa, List<Empleado> empleado, TipoEmpresa tipoEmpresa) {
         this.identificador = identificador;
         this.codigoEmpresa = codigoEmpresa;
         this.empleado = empleado;
-        TipoEmpresa = tipoEmpresa;
+        this.tipoEmpresa = tipoEmpresa;
     }
 
     public int getIdentificador() {
@@ -41,12 +41,12 @@ public class Empresa {
         this.empleado = empleado;
     }
 
-    public Enum getTipoEmpresa() {
-        return TipoEmpresa;
+    public TipoEmpresa getTipoEmpresa() {
+        return this.tipoEmpresa;
     }
 
-    public void setTipoEmpresa(Enum tipoEmpresa) {
-        TipoEmpresa = tipoEmpresa;
+    public void setTipoEmpresa(TipoEmpresa tipoEmpresa) {
+        this.tipoEmpresa = tipoEmpresa;
     }
 
     @Override
@@ -68,7 +68,7 @@ public class Empresa {
                 "identificador=" + identificador +
                 ", codigoEmpresa='" + codigoEmpresa + '\'' +
                 ", empleado=" + empleado +
-                ", TipoEmpresa=" + TipoEmpresa +
+                ", TipoEmpresa=" + this.tipoEmpresa +
                 '}';
     }
 }

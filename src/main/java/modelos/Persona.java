@@ -55,9 +55,9 @@ public class Persona {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.direccion = direccion;
-
-
     }
+
+    public Persona(){}
 
     @Override
     public boolean equals(Object o) {

@@ -2,17 +2,22 @@ package modelos;
 
 import java.util.Objects;
 
-public class Empleado extends Persona{
+public class Empleado extends Persona {
 
     private String numTelefono;
     private Empresa empresa;
     private Contrato contrato;
 
-    public Empleado(int identificador, String dni, String nombre, String apellidos, String direccion, String numTelefono, Empresa empresa, Contrato contrato) {
 
+    public Empleado(int identificador, String dni, String nombre, String apellidos, String direccion, String numTelefono, Empresa empresa, Contrato contrato) {
         super(identificador, dni, nombre, apellidos, direccion);
         this.numTelefono = numTelefono;
         this.empresa = empresa;
+        this.contrato = contrato;
+    }
+
+    public Empleado(Contrato contrato) {
+        super();
         this.contrato = contrato;
     }
 
@@ -63,6 +68,4 @@ public class Empleado extends Persona{
                 '}';
     }
 
-    public int compareTo(Empleado o2) {
-    }
 }

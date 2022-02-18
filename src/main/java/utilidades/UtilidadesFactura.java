@@ -1,5 +1,6 @@
 package utilidades;
 
+import modelos.Cliente;
 import modelos.Factura;
 import modelos.LineaFactura;
 import modelos.Producto;
@@ -21,7 +22,7 @@ public class UtilidadesFactura {
 //importe del Producto de la LineaFactura multiplicada por la
 //cantidad de dicho producto, también indicada en la linea.//
 
-    public double calcularBaseFactura(Factura factura){
+    public static double calcularBaseFactura(Factura factura){
         double precio_total = 0.0;
 
         for(LineaFactura lineaFactura: factura.getLineaFactura()) {
@@ -33,7 +34,7 @@ public class UtilidadesFactura {
     }
 
 
-    public double calcularBaseFactura2(Factura factura){
+    public static double calcularBaseFactura2(Factura factura){
 
         return factura.getLineaFactura().stream().map(l-> l.getProducto())
                 .collect(Collectors.toList()).stream().mapToDouble(p-> p.getPrecio()).sum();
@@ -45,12 +46,22 @@ public class UtilidadesFactura {
     //(importeBase - descuentos) * iva
     //Todos estos datos obtenidos de la factura que se le pasa
 
-    public double TotalAPagar (Factura factura){
+    public static double TotalAPagar (Factura factura){
         double total_pago = 0.0;
         total_pago = (calcularBaseFactura(factura) - factura.getDescuento())* factura.getIva();
         return total_pago;
 
     }
-
-
+    /*a. public Double gastoTotalCliente(List<Factura> facturas, Cliente
+    cliente).
+    Que devuelve la suma del importe total de las facturas , que pertenecen
+    al cliente pasado como parámetro.
+    */
+    public static Double gastoTotalCliente(List<Factura> facturas, Cliente cliente){
+        Double total= 0.0;
+        for(Factura pagos: facturas){
+            total= total + pagos.getTotalAPagar();
+        }
+        return total;
+    }
 }
